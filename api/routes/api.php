@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderDetailController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Api\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +33,8 @@ Route::get('order_detail/{id}', [OrderDetailController::class, 'read']);
 Route::put('order_detail/{id}', [OrderDetailController::class, 'update']);
 Route::delete('order_detail/{id}', [OrderDetailController::class, 'delete']);
 
-Route::get('/products', [ProductController::class, 'index']);
-Route::get('/products/{id}', [ProductController::class, 'show']);
-Route::post('/products', [ProductController::class, 'store']);
-Route::patch('/products/{id}', [ProductController::class, 'update']);
-Route::delete('/products/{id}', [ProductController::class, 'destroy']);
+Route::get('products', [ProductController::class, 'index']);
+Route::get('products/{id}', [ProductController::class, 'show']);
+Route::post('products', [ProductController::class, 'store']);
+Route::patch('products/{id}', [ProductController::class, 'update']);
+Route::delete('products/{id}', [ProductController::class, 'destroy']);
