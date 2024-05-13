@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->text('description')->nullable();
             $table->string('photo')->nullable();
-            $table->string('type')->nullable();
             $table->integer('quantity')->nullable();
             $table->double('price');
             $table->timestamps();
