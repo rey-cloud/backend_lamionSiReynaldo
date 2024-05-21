@@ -10,7 +10,7 @@ interface ProductServiceInterface
 
     public function createProduct(object $data);
 
-    public function updateProduct(int $id, object $data);
+    public function updateProduct(object $data, int $id);
 
     public function deleteProduct(int $id);
 }

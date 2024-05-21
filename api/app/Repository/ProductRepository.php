@@ -4,42 +4,51 @@ namespace App\Repository;
 
 use App\Interface\Repository\ProductRepositoryInterface;
 use App\Models\Product;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Http\Response;
 
 class ProductRepository implements ProductRepositoryInterface
 {
     public function getAll()
     {
-        return Product::query(); // This returns a query builder instance
+        return Product::paginate(20);
     }
 
     public function getById(int $id)
     {
-        try {
-            return Product::findOrFail($id);
-        } catch (ModelNotFoundException $exception) {
-            throw new \Exception("Product with ID $id not found", 404);
-        }
+        return Product::findOrFail($id);
     }
 
     public function create(object $data)
     {
-        return Product::create((array) $data);
+        $product = new Product();
+        $product->name = $data->name;
+        $product->description = $data->description;
+        $product->price = $data->price;
+        $product->quantity = $data->quantity;
+        $product->save();
+
+        return $product->fresh();
     }
 
-    public function update(int $id, object $data)
+    public function update(object $data, int $id)
     {
-        $product = $this->getById($id);
-        $product->update((array) $data);
+        $product = Product::findOrFail($id);
+        $product->name = $data->name;
+        $product->description = $data->description;
+        $product->price = $data->price;
+        $product->quantity = $data->quantity;
+        $product->save();
 
-        return $product;
+        return $product->fresh();
     }
 
     public function delete(int $id)
     {
-        $product = $this->getById($id);
+        $product = Product::findOrFail($id);
         $product->delete();
 
-        return $product;
+        return response()->json([
+            'message' => 'Success'
+        ], Response::HTTP_OK);
     }
 }

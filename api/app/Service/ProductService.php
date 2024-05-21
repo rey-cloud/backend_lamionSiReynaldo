@@ -34,9 +34,9 @@ class ProductService implements ProductServiceInterface
         return new ProductResource($product);
     }
 
-    public function updateProduct(int $id, object $data)
+    public function updateProduct(object $data, int $id)
     {
-        $product = $this->productRepository->update($id, $data);
+        $product = $this->productRepository->update($data, $id);
 
         return new ProductResource($product);
     }
