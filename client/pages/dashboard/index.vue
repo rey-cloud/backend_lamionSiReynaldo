@@ -15,7 +15,7 @@
             </thead>
             <tbody>
               <tr v-for="(stat, index) in stats" :key="index" class="">
-                <td v-for="column in columns" :key="column.id" class="py-2 text-xl font-light text-gray-100 border-2 ">{{ getValue(stat, column.name) }}</td>
+                <td v-for="column in columns" :key="column.id" class="py-2 text-xl font-light text-gray-100 ">{{ getValue(stat, column.name) }}</td>
               </tr>
             </tbody>
           </table>
