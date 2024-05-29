@@ -14,11 +14,11 @@ class OrderStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'customer_id' => 'nullable|exists:customers,id',
+            'customer_id' => 'required|exists:customers,id',
             'order_date' => 'required|date',
-            'total_price' => 'required|numeric|min:0',
+            'total_price' => 'required|numeric',
             'payment_method' => 'required|string',
-            'order_status' => 'required|in:pending,processing,completed',
+            'order_status' => 'required|string',
         ];
     }
 }
