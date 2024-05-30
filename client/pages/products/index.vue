@@ -21,7 +21,9 @@
             <div class="p-2 text-gray-100">Quantity: {{ product.quantity }}</div>
             <div class="p-2 text-gray-100">Price: ${{ product.price }}</div>
             <div class="flex w-full mt-auto">
-              <button @click="updateProduct(product.id)" class="px-4 py-2 font-bold text-gray-100 transition-colors duration-300 ease-in-out bg-indigo-600 rounded hover:bg-indigo-500 hover:text-gray-100">Update</button>
+              <nuxt-link :to="`/products/${product.id}`">
+                <button class="px-4 py-2 font-bold text-gray-100 transition-colors duration-300 ease-in-out bg-indigo-600 rounded hover:bg-indigo-500 hover:text-gray-100">Update</button>
+              </nuxt-link>
             </div>
           </div>
         </div>

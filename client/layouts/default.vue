@@ -1,5 +1,5 @@
 <template>
-    <div class="scrollbar-hide">
+    <div class="bg-gray-900 scrollbar-hide">
         <div>
         <TransitionRoot as="template" :show="sidebarOpen">
             <Dialog as="div" class="relative z-50 lg:hidden" @close="sidebarOpen = false">
@@ -147,7 +147,7 @@
 
         <footer class="relative ml-20 bg-gray-900 ring-1 ring-gray-700" aria-labelledby="footer-heading">
             <h2 id="footer-heading" class="sr-only">Footer</h2>
-            <div class="px-6 pt-16 pb-8 mx-auto max-w-7xl sm:pt-24 lg:px-8 lg:pt-32">
+            <div class="px-6 pt-8 pb-8 mx-auto max-w-7xl sm:pt-24 lg:px-8 lg:pt-32">
                 <div class="xl:grid xl:grid-cols-3 xl:gap-8">
                     <img class="h-7" src="../assets/css/img/LOGO1.png"
                         alt="Company name" />

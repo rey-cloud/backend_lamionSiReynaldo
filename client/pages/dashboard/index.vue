@@ -1,6 +1,6 @@
 <template>
     <div class="min-h-full rounded-3xl scrollbar-hide ring-1 ring-gray-700">
-      <header class="shadow-md shadow-gray-700 rounded-t-3xl">
+      <header class="shadow-sm shadow-gray-700 rounded-t-3xl">
         <div class="px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <h1 class="text-5xl font-bold tracking-tight text-gray-100">Dashboard</h1>
         </div>
