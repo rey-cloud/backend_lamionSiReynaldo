@@ -1,5 +1,5 @@
 <template>
-    <div class="scrollbar-hide">
+    <div class="grid-cols-2 scrollbar-hide">
       <div class="flex items-center justify-center bg-gray-900">
         <div class="container px-4 mx-auto">
           <div class="flex items-center py-10">
