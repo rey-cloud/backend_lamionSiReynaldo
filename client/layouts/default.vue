@@ -52,26 +52,24 @@
         </TransitionRoot>
 
         <!-- Static sidebar for desktop -->
-        <div
-            class="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-50 lg:block lg:w-20 lg:overflow-y-auto lg:bg-gray-900 lg:pb-4">
+        <div class="hidden lg:fixed lg:inset-y-0 lg:left-0 lg:z-50 lg:block lg:w-60 lg:overflow-y-auto lg:bg-gray-900 lg:pb-4">
             <div class="flex items-center justify-center h-16 shrink-0">
-                <img class="w-auto h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company" />
+                <img class="w-auto h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company" />
             </div>
             <nav class="mt-8">
-                <ul role="list" class="flex flex-col items-center space-y-1">
+                <ul role="list" class="px-2 space-y-1">
                     <li v-for="item in navigationheader" :key="item.name">
                         <a @click="navigateTo(item.href)"
                             :class="[item.current ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800', 'group flex gap-x-3 rounded-md p-3 text-sm leading-6 font-semibold cursor-pointer']">
                             <component :is="item.icon" class="w-6 h-6 shrink-0" aria-hidden="true" />
-                            <span class="sr-only">{{ item.name }}</span>
+                            <span>{{ item.name }}</span>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
 
-        <div class="sticky bg-gray-900 lg:pl-20">
+        <div class="sticky bg-gray-900 lg:pl-56">
             <div
                 class="sticky top-0 z-40 flex items-center h-16 px-4 py-3 bg-gray-900 shadow-sm shrink-0 gap-x-4 sm:gap-x-6 sm:px-6 lg:px-8">
                 <button type="button" class="-m-2.5 p-2.5 text-gray-700 lg:hidden" @click="sidebarOpen = true">
@@ -122,7 +120,7 @@
                                     class="absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-gray-900 py-2 shadow-lg ring-1 ring-gray-100/5 focus:outline-none">
                                     <MenuItem v-for="item in userNavigation" :key="item.name" v-slot="{ active }">
                                     <a :href="item.href" :onClick="item.onClick" class="cursor-pointer"
-                                        :class="[active ? 'bg-gray-50' : '', 'block px-3 py-1 text-sm leading-6 text-gray-100']">{{
+                                        :class="[active ? 'bg-gray-950' : '', 'block px-3 py-1 text-sm leading-6 text-gray-100']">{{
                                             item.name }}</a>
                                     </MenuItem>
                                 </MenuItems>
@@ -132,7 +130,7 @@
                 </div>
             </div>
 
-            <main>
+            <main :class="{ '': !sidebarOpen }">
                 <div class="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">
                     <slot />
                 </div>
@@ -147,7 +145,7 @@
     </div>  
 
 
-        <footer class="relative bg-gray-900 ring-1 ring-gray-700" aria-labelledby="footer-heading">
+        <footer class="relative ml-20 bg-gray-900 ring-1 ring-gray-700" aria-labelledby="footer-heading">
             <h2 id="footer-heading" class="sr-only">Footer</h2>
             <div class="px-6 pt-16 pb-8 mx-auto max-w-7xl sm:pt-24 lg:px-8 lg:pt-32">
                 <div class="xl:grid xl:grid-cols-3 xl:gap-8">

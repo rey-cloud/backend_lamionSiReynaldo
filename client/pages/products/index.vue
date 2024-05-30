@@ -1,32 +1,32 @@
 <template>
     <div class="scrollbar-hide">
-      <div class="flex items-center justify-center bg-gray-100">
+      <div class="flex items-center justify-center bg-gray-900">
         <div class="container px-4 mx-auto">
           <div class="flex items-center py-10">
             <div>
-              <h1 class="text-3xl font-bold text-gray-800">Product List</h1>
+              <h1 class="text-3xl font-bold text-gray-100">Product List</h1>
             </div>
             <div class="flex justify-end grow">
-              <nuxt-link to="/products/create" class="px-4 py-2 font-bold text-white transition-colors duration-300 ease-in-out bg-blue-500 rounded hover:bg-blue-700">Add Product</nuxt-link>
+              <nuxt-link to="/products/create" class="px-4 py-2 font-bold text-white transition-colors duration-300 ease-in-out bg-indigo-600 rounded hover:bg-indigo-500">Add Product</nuxt-link>
             </div>
           </div>
-          <div v-if="state.products.length">
-            <div v-for="product in state.products" :key="product.id" class="flex justify-between p-4 bg-white rounded-lg shadow-lg">
-              <div>
-                <img :src="product.photo" alt="Product Image" class="object-cover w-32 rounded max-h-16">
-              </div>
-              <div class="flex items-center w-full ml-4">
-                <h2 class="flex-shrink-0 text-xl font-bold">{{ product.name }}</h2>
-                <p class="flex-shrink-0 text-gray-600">{{ product.description }}</p>
-                <div class="flex-shrink-0 text-gray-700">Quantity: {{ product.quantity }}</div>
-                <div class="flex-shrink-0 text-gray-700">Price: ${{ product.price }}</div>
-                <div class="flex items-center justify-end flex-shrink-0">
-                  <button @click="updateProduct(product.id)" class="bg-[#fff019] hover:bg-[#fffab8] text-[#1B5D88] font-bold py-2 px-4 mx-1 rounded transition-colors duration-300 ease-in-out">Update</button>
-                </div>
-              </div>
+          <div v-if="state.products.length" class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div v-for="product in state.products" :key="product.id" class="flex flex-col p-4 bg-gray-800 rounded-lg shadow-sm ring-1 ring-gray-700 shadow-gray-700 bg-none">
+          <div>
+            <img :src="product.photo" alt="Product Image" class="object-cover w-full h-32 rounded">
+          </div>
+          <div class="flex flex-col items-start flex-grow w-full mt-4">
+            <h2 class="p-2 text-xl font-bold text-gray-100">{{ product.name }}</h2>
+            <p class="p-2 text-gray-400">{{ product.description }}</p>
+            <div class="p-2 text-gray-100">Quantity: {{ product.quantity }}</div>
+            <div class="p-2 text-gray-100">Price: ${{ product.price }}</div>
+            <div class="flex w-full mt-auto">
+              <button @click="updateProduct(product.id)" class="px-4 py-2 font-bold text-gray-100 transition-colors duration-300 ease-in-out bg-indigo-600 rounded hover:bg-indigo-500 hover:text-gray-100">Update</button>
             </div>
           </div>
-          <div v-else class="min-h-screen text-center text-gray-700 text-7xl">
+        </div>
+          </div>
+          <div v-else class="min-h-screen text-center text-gray-100 text-7xl">
             <p>Loading...</p>
           </div>
         </div>
