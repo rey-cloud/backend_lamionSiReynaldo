@@ -11,7 +11,7 @@ class Product extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'name', 'description', 'photo', 'quantity', 'price',
+        'name', 'description', 'quantity', 'price',
     ];
     public function formattedPrice()
     {
