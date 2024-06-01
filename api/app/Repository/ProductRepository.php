@@ -42,13 +42,4 @@ class ProductRepository implements ProductRepositoryInterface
         return $product->fresh();
     }
 
-    public function delete(int $id)
-    {
-        $product = Product::findOrFail($id);
-        $product->delete();
-
-        return response()->json([
-            'message' => 'Success'
-        ], Response::HTTP_OK);
-    }
 }

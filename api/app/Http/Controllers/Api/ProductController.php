@@ -7,6 +7,7 @@ use App\Http\Requests\ProductStoreRequest;
 use App\Http\Requests\ProductUpdateRequest;
 use App\Interface\Service\ProductServiceInterface;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Storage;
 
 
 class ProductController extends Controller
@@ -35,11 +36,8 @@ class ProductController extends Controller
 
     public function update(ProductUpdateRequest $request, int $id)
     {
+
         return $this->productService->updateProduct($request, $id);
     }
-
-    public function destroy(int $id)
-    {
-        return $this->productService->deleteProduct($id);
-    }
 }
+

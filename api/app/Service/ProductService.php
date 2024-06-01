@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Service;
 
 use App\Http\Resources\ProductResource;
@@ -39,10 +38,5 @@ class ProductService implements ProductServiceInterface
         $product = $this->productRepository->update($data, $id);
 
         return new ProductResource($product);
-    }
-
-    public function deleteProduct(int $id)
-    {
-        return $this->productRepository->delete($id);
     }
 }

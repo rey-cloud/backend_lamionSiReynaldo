@@ -14,10 +14,10 @@ class ProductUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'sometimes|required|string',
+            'name' => 'sometimes|string',
             'description' => 'nullable|string',
-            'quantity' => 'sometimes|nullable|integer',
-            'price' => 'sometimes|nullable|numeric',
+            'quantity' => 'sometimes|integer',
+            'price' => 'sometimes|numeric',
         ];
     }
 
